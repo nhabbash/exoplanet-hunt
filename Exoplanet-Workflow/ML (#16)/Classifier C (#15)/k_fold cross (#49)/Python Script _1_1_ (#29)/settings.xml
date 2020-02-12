@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns="http://www.knime.org/2008/09/XMLConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.knime.org/2008/09/XMLConfig http://www.knime.org/XMLConfig_2008_09.xsd" key="settings.xml">
+<entry key="node_file" type="xstring" value="settings.xml"/>
+<config key="flow_stack"/>
+<config key="internal_node_subsettings">
+<entry key="memory_policy" type="xstring" value="CacheSmallInMemory"/>
+</config>
+<config key="model">
+<entry key="sourceCode" type="xstring" value="from matplotlib import pyplot as plt%%00010from sklearn.metrics import confusion_matrix%%00010import numpy as np%%00010%%00010%%00010def plotConfusionMatrix(y_true, y_pred, classes, normalize, title, cmap = plt.cm.get_cmap(&quot;Reds&quot;)):%%00010    %%00010    cm = confusion_matrix(y_true, y_pred)%%00010    if normalize:%%00010        cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]%%00010%%00010    # print(cm)%%00010%%00010    fig, ax = plt.subplots()%%00010    im = ax.imshow(cm, interpolation='nearest', cmap= cmap)%%00010    ax.figure.colorbar(im, ax=ax)%%00010%%00010    ax.set(xticks=np.arange(cm.shape[1]),%%00010           yticks=np.arange(cm.shape[0]),%%00010%%00010           xticklabels=classes, yticklabels=classes,%%00010           title=title,%%00010           ylabel='True label',%%00010           xlabel='Predicted label')%%00010%%00010    plt.setp(ax.get_xticklabels(), rotation=45, ha=&quot;right&quot;,%%00010             rotation_mode=&quot;anchor&quot;)%%00010%%00010    fmt = '.2f' if normalize else 'd'%%00010    thresh = cm.max() / 2.%%00010    for i in range(cm.shape[0]):%%00010        for j in range(cm.shape[1]):%%00010            ax.text(j, i, format(cm[i, j], fmt),%%00010                    ha=&quot;center&quot;, va=&quot;center&quot;,%%00010                    color=&quot;white&quot; if cm[i, j] &gt; thresh else &quot;black&quot;)%%00010    fig.tight_layout()%%00010%%00010    plt.show(ax)%%00010%%00010%%00010plotConfusionMatrix(input_table['state'], input_table['Prediction (state)'], ('Candidate', 'False Positive', 'Confirmed'), False, &quot;SVM&quot;)"/>
+<entry key="rowLimit" type="xint" value="1000"/>
+<entry key="pythonVersionOption" type="xstring" value="python3"/>
+<entry key="python2Command" type="xstring" value=""/>
+<entry key="python3Command" type="xstring" value=""/>
+<entry key="chunkSize" type="xint" value="500000"/>
+<entry key="convertMissingToPython" type="xboolean" value="false"/>
+<entry key="convertMissingFromPython" type="xboolean" value="false"/>
+<entry key="sentinelOption" type="xstring" value="MIN_VAL"/>
+<entry key="sentinelValue" type="xint" value="0"/>
+</config>
+<entry key="customDescription" type="xstring" isnull="true" value=""/>
+<entry key="state" type="xstring" value="CONFIGURED"/>
+<entry key="factory" type="xstring" value="org.knime.python2.nodes.script.Python2ScriptNodeFactory"/>
+<entry key="node-name" type="xstring" value="Python Script (1⇒1)"/>
+<entry key="node-bundle-name" type="xstring" value="KNIME Python nodes"/>
+<entry key="node-bundle-symbolic-name" type="xstring" value="org.knime.python2.nodes"/>
+<entry key="node-bundle-vendor" type="xstring" value="KNIME AG, Zurich, Switzerland"/>
+<entry key="node-bundle-version" type="xstring" value="4.0.0.v201906190741"/>
+<entry key="node-feature-name" type="xstring" value="KNIME Python Integration"/>
+<entry key="node-feature-symbolic-name" type="xstring" value="org.knime.features.python2.feature.group"/>
+<entry key="node-feature-vendor" type="xstring" value="KNIME AG, Zurich, Switzerland"/>
+<entry key="node-feature-version" type="xstring" value="4.0.0.v201906241606"/>
+<config key="factory_settings"/>
+<entry key="name" type="xstring" value="Python Script (1⇒1)"/>
+<entry key="hasContent" type="xboolean" value="false"/>
+<entry key="isInactive" type="xboolean" value="false"/>
+<config key="ports">
+<config key="port_1">
+<entry key="index" type="xint" value="1"/>
+<entry key="port_dir_location" type="xstring" isnull="true" value=""/>
+</config>
+</config>
+<config key="filestores">
+<entry key="file_store_location" type="xstring" isnull="true" value=""/>
+<entry key="file_store_id" type="xstring" isnull="true" value=""/>
+</config>
+</config>

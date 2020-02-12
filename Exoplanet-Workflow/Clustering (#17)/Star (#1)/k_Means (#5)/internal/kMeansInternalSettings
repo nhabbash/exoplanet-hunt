@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns="http://www.knime.org/2008/09/XMLConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.knime.org/2008/09/XMLConfig http://www.knime.org/XMLConfig_2008_09.xsd" key="kMeans">
+<entry key="dimensions" type="xint" value="4"/>
+<entry key="ignoredColumns" type="xint" value="1"/>
+<config key="clusterCoverage">
+<entry key="array-size" type="xint" value="3"/>
+<entry key="0" type="xint" value="6703"/>
+<entry key="1" type="xint" value="346"/>
+<entry key="2" type="xint" value="2514"/>
+</config>
+<config key="kMeansCluster0">
+<entry key="array-size" type="xint" value="3"/>
+<entry key="0" type="xdouble" value="5935.37152058272"/>
+<entry key="1" type="xdouble" value="4.335658685976737"/>
+<entry key="2" type="xdouble" value="1.235644803261181"/>
+</config>
+<config key="kMeansCluster1">
+<entry key="array-size" type="xint" value="3"/>
+<entry key="0" type="xdouble" value="7871.811645172118"/>
+<entry key="1" type="xdouble" value="3.9707643845308764"/>
+<entry key="2" type="xdouble" value="2.399532960156"/>
+</config>
+<config key="kMeansCluster2">
+<entry key="array-size" type="xint" value="3"/>
+<entry key="0" type="xdouble" value="4803.105807478122"/>
+<entry key="1" type="xdouble" value="4.29391368337311"/>
+<entry key="2" type="xdouble" value="2.9150262529832944"/>
+</config>
+<config key="FeatureNames">
+<entry key="array-size" type="xint" value="4"/>
+<entry key="0" type="xstring" value="star_temperature"/>
+<entry key="1" type="xstring" value="star_gravity"/>
+<entry key="2" type="xstring" value="star_radius"/>
+<entry key="3" type="xstring" isnull="true" value=""/>
+</config>
+</config>

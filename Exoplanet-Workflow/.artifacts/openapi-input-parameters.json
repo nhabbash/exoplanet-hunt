@@ -1,0 +1,12 @@
+
+{
+    "type":"object",
+    "properties":{
+        "double-input-16:15:1":{
+            "type":"number",
+            "default":1.645,
+            "description":"Enter Description",
+            "example":1.645
+        }
+    }
+}

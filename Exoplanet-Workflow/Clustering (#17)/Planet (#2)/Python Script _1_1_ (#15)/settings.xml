@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns="http://www.knime.org/2008/09/XMLConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.knime.org/2008/09/XMLConfig http://www.knime.org/XMLConfig_2008_09.xsd" key="settings.xml">
+<entry key="node_file" type="xstring" value="settings.xml"/>
+<config key="flow_stack"/>
+<config key="internal_node_subsettings">
+<entry key="memory_policy" type="xstring" value="CacheSmallInMemory"/>
+</config>
+<config key="model">
+<entry key="sourceCode" type="xstring" value="from sklearn.datasets import make_blobs%%00010from sklearn.cluster import KMeans%%00010from sklearn.metrics import silhouette_samples, silhouette_score%%00010%%00010import matplotlib.pyplot as plt%%00010import matplotlib.cm as cm%%00010import numpy as np%%00010%%00010%%00010%%00010n_max_cluster = 10%%00010iterations = 5000%%00010%%00010category_list = ['orbital_period','transit_epoch', 'transit_duration', 'impact_parameter', 'planet_radius', 'planet_temperature']%%00010%%00010for k in range(2, n_max_cluster):%%00010%%00010%%00009fig, ax1 = plt.subplots(1, 1)%%00010%%00009fig.set_size_inches(18, 7)%%00010%%00009ax1.set_xlim([-0.1, 1])%%00010%%00009ax1.set_ylim([0, len(input_table[category_list]) + (k + 1) * 10])%%00010%%00010%%00009kmeans = KMeans(n_clusters = k, max_iter = iterations)%%00010%%00009kmeas_labels = kmeans.fit_predict(input_table[category_list])%%00010%%00010%%00009silhouette_avg = silhouette_score(input_table[category_list], kmeas_labels)%%00010%%00009print(&quot;For n_clusters =&quot;, k, &quot;The average silhouette_score is :&quot;, silhouette_avg)%%00010%%00010%%00009sample_silhouette_values = silhouette_samples(input_table[category_list], kmeas_labels)%%00010%%00009y_lower = 100%%00010%%00009for i in range(k):%%00010%%00009%%00009ith_cluster_silhouette_values = \%%00010%%00009%%00009%%00009sample_silhouette_values[kmeas_labels == i]%%00010%%00009%%00009ith_cluster_silhouette_values.sort()%%00010%%00009%%00009size_cluster_i = ith_cluster_silhouette_values.shape[0]%%00010%%00009%%00009y_upper = y_lower + size_cluster_i%%00010%%00009%%00009color = cm.nipy_spectral(float(i) / k)%%00010%%00009%%00009ax1.fill_betweenx(np.arange(y_lower, y_upper), 0, ith_cluster_silhouette_values, facecolor=color, edgecolor=color, alpha=0.7)%%00010%%00009%%00009ax1.text(-0.05, y_lower + 0.5 * size_cluster_i, str(i))%%00010%%00009%%00009y_lower = y_upper + 100  %%00010%%00009%%00009ax1.set_title(&quot;The silhouette plot for the various clusters.&quot;)%%00010%%00009%%00009ax1.set_xlabel(&quot;The silhouette coefficient values&quot;)%%00010%%00009%%00009ax1.set_ylabel(&quot;Cluster label&quot;)%%00010%%00009%%00009ax1.axvline(x=silhouette_avg, color=&quot;red&quot;, linestyle=&quot;--&quot;)%%00010%%00009%%00009ax1.set_yticks([])%%00010%%00009%%00009ax1.set_xticks([-0.1, 0, 0.2, 0.4, 0.6, 0.8, 1])%%00010%%00010%%00010%%00010%%00009plt.suptitle((&quot;Silhouette analysis for KMeans clustering on sample data &quot;%%00010%%00009              &quot;with n_clusters = %d&quot; % k),%%00010%%00009             fontsize=14, fontweight='bold')%%00010%%00010plt.show()%%00010%%00010output_table = input_table.copy()%%00010%%00010%%00010   "/>
+<entry key="rowLimit" type="xint" value="1000"/>
+<entry key="pythonVersionOption" type="xstring" value="python3"/>
+<entry key="python2Command" type="xstring" value=""/>
+<entry key="python3Command" type="xstring" value=""/>
+<entry key="chunkSize" type="xint" value="500000"/>
+<entry key="convertMissingToPython" type="xboolean" value="false"/>
+<entry key="convertMissingFromPython" type="xboolean" value="false"/>
+<entry key="sentinelOption" type="xstring" value="MIN_VAL"/>
+<entry key="sentinelValue" type="xint" value="0"/>
+</config>
+<config key="nodeAnnotation">
+<entry key="text" type="xstring" value="Silhouette"/>
+<entry key="bgcolor" type="xint" value="16777215"/>
+<entry key="x-coordinate" type="xint" value="549"/>
+<entry key="y-coordinate" type="xint" value="419"/>
+<entry key="width" type="xint" value="104"/>
+<entry key="height" type="xint" value="13"/>
+<entry key="alignment" type="xstring" value="CENTER"/>
+<entry key="borderSize" type="xint" value="0"/>
+<entry key="borderColor" type="xint" value="16777215"/>
+<entry key="defFontSize" type="xint" value="11"/>
+<entry key="annotation-version" type="xint" value="20151123"/>
+<config key="styles"/>
+</config>
+<entry key="customDescription" type="xstring" isnull="true" value=""/>
+<entry key="state" type="xstring" value="CONFIGURED"/>
+<entry key="factory" type="xstring" value="org.knime.python2.nodes.script.Python2ScriptNodeFactory"/>
+<entry key="node-name" type="xstring" value="Python Script (1⇒1)"/>
+<entry key="node-bundle-name" type="xstring" value="KNIME Python nodes"/>
+<entry key="node-bundle-symbolic-name" type="xstring" value="org.knime.python2.nodes"/>
+<entry key="node-bundle-vendor" type="xstring" value="KNIME AG, Zurich, Switzerland"/>
+<entry key="node-bundle-version" type="xstring" value="4.0.0.v201906190741"/>
+<entry key="node-feature-name" type="xstring" value="KNIME Python Integration"/>
+<entry key="node-feature-symbolic-name" type="xstring" value="org.knime.features.python2.feature.group"/>
+<entry key="node-feature-vendor" type="xstring" value="KNIME AG, Zurich, Switzerland"/>
+<entry key="node-feature-version" type="xstring" value="4.0.0.v201906241606"/>
+<config key="factory_settings"/>
+<entry key="name" type="xstring" value="Python Script (1⇒1)"/>
+<entry key="hasContent" type="xboolean" value="false"/>
+<entry key="isInactive" type="xboolean" value="false"/>
+<config key="ports">
+<config key="port_1">
+<entry key="index" type="xint" value="1"/>
+<entry key="port_dir_location" type="xstring" isnull="true" value=""/>
+</config>
+</config>
+<config key="filestores">
+<entry key="file_store_location" type="xstring" isnull="true" value=""/>
+<entry key="file_store_id" type="xstring" isnull="true" value=""/>
+</config>
+</config>
